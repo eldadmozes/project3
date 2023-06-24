@@ -1,0 +1,75 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Destroy EC2') {
+            agent {
+                label 'ec2'
+            }
+                   steps {   
+                dir('/home/ubuntu/workspace/project3_TF') {
+                    // sh 'terraform init'
+                    sh 'terraform destroy -target=module.ec2 --auto-approve'
+            }
+        }
+        }
+    
+
+        
+        stage('Destroy S3') {
+            agent {
+                label 's3'
+            }
+              steps {   
+                dir('/home/ubuntu/workspace/project3_TF') {
+                    // sh 'terraform init'
+                    sh 'terraform destroy -target=module.s3 --auto-approve'
+            }
+        }
+        }
+       
+
+        
+        
+        stage('Destroy IAM User') {
+            agent {
+                label 'iam'
+            }
+               steps {   
+                dir('/home/ubuntu/workspace/project3_TF') {
+                    // sh 'terraform init'
+                    sh 'terraform destroy -target=module.iam --auto-approve'
+            }
+        }
+        }
+    
+
+        
+        stage('Destroy DynamoDB') {
+            agent {
+                label 'dynamodb'
+            }
+              steps {   
+                dir('/home/ubuntu/workspace/project3_TF') {
+                    // sh 'terraform init'
+                    sh 'terraform destroy -target=module.dynamodb --auto-approve'
+            }
+        }
+        }
+    
+
+        
+        stage('Destroy Github') {
+            agent {
+                label 'github'
+            }
+              steps {   
+                dir('/home/ubuntu/workspace/project3_TF') {
+                    // sh 'terraform init'
+                    sh 'terraform destroy -target=module.github --auto-approve'
+            }
+        }
+        }
+    }
+}
+    
