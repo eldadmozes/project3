@@ -23,4 +23,12 @@ resource "aws_dynamodb_table" "project3_table" {
     name = "last_name"
     type = "S"
   }
+
+  global_secondary_index {
+    name               = "first_name_index"
+    hash_key           = "first_name"
+    projection_type    = "ALL"
+    read_capacity      = 5
+    write_capacity     = 5
+  }
 }
