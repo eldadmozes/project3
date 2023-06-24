@@ -4,7 +4,7 @@ provider "aws" {
 
 resource "aws_dynamodb_table" "project3_table" {
   name           = "project3_table"
-  billing_mode   = "PAY_PER_REQUEST"
+  billing_mode   = "PROVISIONED"
   hash_key       = "id"
   read_capacity  = 10
   write_capacity = 10
