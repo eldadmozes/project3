@@ -19,11 +19,6 @@ resource "aws_dynamodb_table" "project3_table" {
     type = "S"
   }
 
-  attribute {
-    name = "last_name"
-    type = "S"
-  }
-
   global_secondary_index {
     name               = "first_name_index"
     hash_key           = "first_name"
