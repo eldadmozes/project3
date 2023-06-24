@@ -8,7 +8,7 @@ pipeline {
             }
                    steps {   
                 dir('/home/ubuntu/workspace/project3_TF') {
-                    // sh 'terraform init'
+                    sh 'terraform init'
                     sh 'terraform destroy -target=module.ec2 --auto-approve'
             }
         }
@@ -22,7 +22,7 @@ pipeline {
             }
               steps {   
                 dir('/home/ubuntu/workspace/project3_TF') {
-                    // sh 'terraform init'
+                    sh 'terraform init'
                     sh 'terraform destroy -target=module.s3 --auto-approve'
             }
         }
@@ -37,7 +37,7 @@ pipeline {
             }
                steps {   
                 dir('/home/ubuntu/workspace/project3_TF') {
-                    // sh 'terraform init'
+                    sh 'terraform init'
                     sh 'terraform destroy -target=module.iam --auto-approve'
             }
         }
@@ -51,7 +51,7 @@ pipeline {
             }
               steps {   
                 dir('/home/ubuntu/workspace/project3_TF') {
-                    // sh 'terraform init'
+                    sh 'terraform init'
                     sh 'terraform destroy -target=module.dynamodb --auto-approve'
             }
         }
@@ -65,7 +65,7 @@ pipeline {
             }
               steps {   
                 dir('/home/ubuntu/workspace/project3_TF') {
-                    // sh 'terraform init'
+                    sh 'terraform init'
                     sh 'terraform destroy -target=module.github --auto-approve'
             }
         }
