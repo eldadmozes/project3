@@ -2,8 +2,8 @@ provider "aws" {
   region = "us-east-1"  # Update with your desired region
 }
 
-resource "aws_s3_bucket" "project_bucket" {
-  bucket = "example-bucket"
+resource "aws_s3_bucket" "project3_bucket" {
+  bucket = "project3_bucket"
   acl    = "private"
 }
 
