@@ -16,7 +16,7 @@ variable "GITHUB_TOKEN"{
 }
 
 provider "github" {
-  token = "var.GITHUB_TOKEN"
+  token = var.GITHUB_TOKEN
 }
 resource "github_repository" "project3-repo" {
   name        = "project3-repo"
