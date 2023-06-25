@@ -56,20 +56,6 @@ pipeline {
             }
         }
         }
-    
-
-        
-        stage('Destroy Github') {
-            agent {
-                label 'github'
-            }
-              steps {   
-                dir('/home/ubuntu/workspace/project3_TF') {
-                    sh 'terraform init'
-                    sh 'terraform destroy -target=module.github --auto-approve'
-            }
-        }
-        }
     }
 }
     
