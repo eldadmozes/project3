@@ -1,9 +1,26 @@
-provider "github" {
-  token        = "TF_VAR_github_token"
+provider "aws" {
+  region = "us-east-1"
+}
+terraform {
+  required_providers {
+    github = {
+      source  = "integrations/github"
+      version = "~> 5.0"
+    }
+  }
 }
 
-resource "github_repository" "project3_repo" {
+provider "github" {
+  token = "TF_VAR_github_token"
+}
+resource "github_repository" "project3-repo" {
   name        = "project3-repo"
-  description = "Example repository created by Terraform"
-  visibility  = "public"  # Set to "private" if you want a private repository
+  description = "This repository created by terraform"
+  visibility  = "public"
+  auto_init   = true
+}
+
+resource "github_branch_default" "default_main" {
+  repository = "project3-repo"
+  branch     = "main"
 }
