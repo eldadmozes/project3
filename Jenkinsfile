@@ -44,7 +44,7 @@ pipeline {
             }
             steps {
                 sh 'terraform init'
-                sh 'terraform apply -target=module.github --auto-approve'
+                sh 'terraform apply -target=module.github --auto-approve -var=\"github_token=${env.GITHUB_TOKEN}\"'
             }
         }
     }

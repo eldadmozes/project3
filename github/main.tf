@@ -10,8 +10,13 @@ terraform {
   }
 }
 
+variable "GITHUB_TOKEN"{
+  type    = string
+  default = ""
+}
+
 provider "github" {
-  token = "TF_VAR_github_token"
+  token = "var.GITHUB_TOKEN"
 }
 resource "github_repository" "project3-repo" {
   name        = "project3-repo"
