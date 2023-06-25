@@ -1,7 +1,9 @@
 pipeline {
     agent none
     environment {
-        GITHUB_TOKEN = credentials('GITHUB_TOKEN')
+        GITHUB_TOKEN = credentials('GITHUB_TOKEN').toString()
+
+        // GITHUB_TOKEN = credentials('GITHUB_TOKEN')
     }
     stages {
         stage('Create EC2') {
