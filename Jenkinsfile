@@ -46,11 +46,15 @@ pipeline {
                 label 'github'
             }
             steps {
-                sh 'terraform init'
-                sh "terraform apply -target=module.github --auto-approve -var='GITHUB_TOKEN=${env.GITHUB_TOKEN}'"
-
+                script {
+                    withEnv(["GITHUB_TOKEN=${env.GITHUB_TOKEN}"]) {
+                    sh 'terraform init'
+                    sh 'terraform apply -target=module.github --auto-approve'
+                }
+                // sh 'terraform init'
+                // sh "terraform apply -target=module.github --auto-approve -var='GITHUB_TOKEN=${env.GITHUB_TOKEN}'"
+                }
             }
         }
-    }
-    
+    }  
 }
