@@ -60,7 +60,7 @@
 pipeline {
     agent none
     environment {
-        GITHUB_TOKEN = ""
+        GITHUB_TOKEN = credentials('GITHUB_TOKEN')
     }
     stages {
         stage('Create EC2') {
