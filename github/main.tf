@@ -54,7 +54,7 @@ provider "github" {
 }
 
 module "github" {
-  source        = "/github"
+  source        = "./github"
   version       = "~> 5.0"
   GITHUB_TOKEN  = var.GITHUB_TOKEN
   repository_name = "project3-repo"
