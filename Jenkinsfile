@@ -106,9 +106,10 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'GITHUB_TOKEN', variable: 'GITHUB_TOKEN')]) {
                     sh 'terraform init'
-                    sh "terraform apply -target=module.github --auto-approve -var="GITHUB_TOKEN=${secrets.GITHUB_TOKEN}""
-                }
+                    sh "terraform apply -target=module.github --auto-approve -var=\"github_token=${secrets.GITHUB_TOKEN}""
+                
             }
         }
     }
+}
 }
