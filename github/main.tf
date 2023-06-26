@@ -17,7 +17,7 @@ terraform {
 # }
 
 provider "github" {
-  token = params.GITHUB_TOKEN
+  token = var.GITHUB_TOKEN
 }
 
 resource "github_repository" "project3-repo" {
