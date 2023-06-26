@@ -13,7 +13,7 @@ terraform {
 
 variable "GITHUB_TOKEN" {
   type    = string
-  default = ""
+  default = var.GITHUB_TOKEN
 }
 
 provider "github" {
