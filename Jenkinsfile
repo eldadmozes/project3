@@ -61,7 +61,7 @@ pipeline {
     agent none
     // environment {
     //     GITHUB_TOKEN = credentials('GITHUB_TOKEN')
-    }
+    // }
     stages {
         stage('Create EC2') {
             agent {
@@ -106,7 +106,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'GITHUB_TOKEN', variable: 'GITHUB_TOKEN')]) {
                     sh 'terraform init'
-                    sh "terraform apply -target=module.github --auto-approve -var=\"GITHUB_TOKEN=${env.GITHUB_TOKEN}\""
+                    sh "terraform apply -target=module.github --auto-approve -var=\"GITHUB_TOKEN=\${GITHUB_TOKEN}\""
                 }
             }
         }
